@@ -1,3 +1,15 @@
 .quote {
     display: none;
+    opacity: 0;
+}
+
+.quote[data-visible="true"]{
+    transition: opacity 2s;
+    opacity: 1;
+    display: block;
+    margin: auto;
+}
+
+body[data-visible="true"]{
+    cursor: url("images/fly.png"), auto;
 }

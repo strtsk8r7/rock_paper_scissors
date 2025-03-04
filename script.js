@@ -2,10 +2,11 @@ let humanScore = 0;
 let computerScore = 0;
 let mikeRoarkScore = 0;
 const eve6 = document.querySelector('.quote');
+const bodyElement = document.querySelector('body');
 
 function getComputerChoice(){
     let rng = Math.random();
-    if (rng <= .33333333){
+    if (rng <= .333){
         return "rock";
     } else if (rng >= .334 && rng <= .666){
         return "paper";
@@ -22,10 +23,15 @@ function getHumanChoice() {
         if (choice === "cds") {
             if (eve6) {
                 const visibility = eve6.getAttribute('data-visible');
+                const mousePointer = bodyElement.getAttribute('data-visible');
                 if (visibility === "false") {
                     eve6.setAttribute("data-visible", "true");
                 }
+                if(mousePointer === "false"){
+                    bodyElement.setAttribute("data-visible", "true");
+                }
                 alert("Nice try, Max");
+                console.log(getHumanChoice())
             }
         }
         if (choice !== "rock" && choice !== "paper" && choice !== "scissors" && choice !== "lava" && choice !== "cds") {
