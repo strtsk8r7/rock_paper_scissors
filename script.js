@@ -1,28 +1,40 @@
 let humanScore = 0;
 let computerScore = 0;
+let mikeRoarkScore = 0;
+const eve6 = document.querySelector('.quote');
 
 function getComputerChoice(){
     let rng = Math.random();
     if (rng <= .33333333){
         return "rock";
-    } else if (rng >= .33333334 && rng <= .66666666){
+    } else if (rng >= .334 && rng <= .666){
         return "paper";
-    } else if (rng >= .66666667){
+    } else if (rng >= .667){
         return "scissors";
     }   
 };
 
-function getHumanChoice(){
+function getHumanChoice() {
     let choice;
-    while (choice !== "rock" && choice !== "paper" && choice !== "scissors" && choice !=="lava") {
+
+    while (choice !== "rock" && choice !== "paper" && choice !== "scissors" && choice !== "lava") {
         choice = prompt("Please choose rock, paper, or scissors").toLowerCase();
-        if (choice !== "rock" && choice !== "paper" && choice !== "scissors" && choice !== "lava") {
-            console.log("Invalid choice. Please try again.");
+        if (choice === "cds") {
+            if (eve6) {
+                const visibility = eve6.getAttribute('data-visible');
+                if (visibility === "false") {
+                    eve6.setAttribute("data-visible", "true");
+                }
+                alert("Nice try, Max");
+            }
+        }
+        if (choice !== "rock" && choice !== "paper" && choice !== "scissors" && choice !== "lava" && choice !== "cds") {
+            alert("Invalid choice. Please try again.");
         }
     }
 
-    return(choice);
-};
+    return choice;
+}
 
 function playRound(humanChoice, computerChoice) {
     const computerSelection = getComputerChoice();
