@@ -3,6 +3,7 @@ let computerScore = 0;
 let mikeRoarkScore = 0;
 const eve6 = document.querySelector('.quote');
 const bodyElement = document.querySelector('body');
+const volcano = document.querySelector('.lava');
 
 function getComputerChoice(){
     let rng = Math.random();
@@ -30,8 +31,8 @@ function getHumanChoice() {
                 if(mousePointer === "false"){
                     bodyElement.setAttribute("data-visible", "true");
                 }
-                alert("Nice try, Max");
-                console.log(getHumanChoice())
+                alert("Nice try, Eve6");
+                console.log(getHumanChoice());
             }
         }
         if (choice !== "rock" && choice !== "paper" && choice !== "scissors" && choice !== "lava" && choice !== "cds") {
@@ -71,6 +72,9 @@ function playRound(humanChoice, computerChoice) {
         return("It's a draw!")
     } else if (computerSelection === "scissors" && humanSelection === "scissors"){
         return("It's a draw!")
+    } else if (humanSelection === "lava"){
+        mikeRoarkScore++;
+        console.log(`Mike Roark Score: ${mikeRoarkScore}`);
     }
   };
 
@@ -81,6 +85,13 @@ function playRound(humanChoice, computerChoice) {
         console.log(`Human Score: ${humanScore}`);
         console.log(`Computer Score: ${computerScore}`);
 
+        if (mikeRoarkScore === 1){
+            const visibility2 = volcano.getAttribute('data-visible2');
+            if (visibility2 === "false"){
+                volcano.setAttribute("data-visible2" , "true");
+                return "I'm not paper; I'm lava...what beats that?";
+            }
+        }
         if (humanScore === 3) {
             return "You win the game!";
         } else if (computerScore === 3) {
@@ -95,6 +106,8 @@ function playRound(humanChoice, computerChoice) {
     } else {
         return "The game is a draw!";
     }
+
 }
+
 
 console.log(playGame());

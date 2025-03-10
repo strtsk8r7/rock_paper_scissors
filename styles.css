@@ -13,3 +13,19 @@
 body[data-visible="true"]{
     cursor: url("images/fly.png"), auto;
 }
+
+body{
+    height: 100vh;
+    margin: auto;
+}
+
+.lava {
+    display: none;
+    opacity: 0;
+}
+
+.lava[data-visible2="true"]{
+    transition: opacity 2s;
+    opacity: 1;
+    display: block;
+}
